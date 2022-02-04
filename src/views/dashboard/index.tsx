@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
 
   const emergencyFundCoverage = Math.round(emergencyFund / monthlyExpenses)
   const emergencyFundTest = emergencyFundCoverage >= 6
-  const multipleIncomeTest = income.length > 1
+  // const multipleIncomeTest = income.length > 1
   const savingsRate = ((monthlyIncome - monthlyExpenses) / monthlyIncome) * 100
   const savingsRateTest = savingsRate > 20
   // const debtCoverage = Math.round(totalLiabilitiesMonthly / totalIncome)
@@ -124,7 +124,7 @@ const Dashboard: React.FC = () => {
     let testsFailing = 0
 
     if (!emergencyFundTest) testsFailing += 1
-    if (!multipleIncomeTest) testsFailing += 1
+    // if (!multipleIncomeTest) testsFailing += 1
     if (!savingsRateTest) testsFailing += 1
     if (!monthlyIncomeTest) testsFailing += 1
     if (!highInterestDebtTest) testsFailing += 1
@@ -447,7 +447,7 @@ const Dashboard: React.FC = () => {
                     </TableCell>
                   </TableRow>
 
-                  <TableRow>
+                  {/* <TableRow>
                     <TableCell component="th" scope="row">
                       Multiple Income Streams
                     </TableCell>
@@ -479,7 +479,7 @@ const Dashboard: React.FC = () => {
                         <InfoIcon />
                       </MaterialTooltip>
                     </TableCell>
-                  </TableRow>
+                  </TableRow> */}
                 </TableBody>
               </Table>
             </TableContainer>
@@ -487,7 +487,7 @@ const Dashboard: React.FC = () => {
         </Dialog>
       </TitleRow>
 
-      <StatsRow><div>Welcome to your dashboard. Head over to your <Link to="/income" style={{ color: 'blue', textDecoration: 'underline' }}>income</Link> to add your current and future salary. Then add any <Link to="/expenses" style={{ color: 'blue', textDecoration: 'underline' }}>expenses</Link> (including inflation and expected future expenses...e.g. kids). Afterwards, add your <Link to="/assets" style={{ color: 'blue', textDecoration: 'underline' }}>assets</Link> (e.g. property) and <Link to="/liabilities" style={{ color: 'blue', textDecoration: 'underline' }}>liabilities (e.g. student loans or mortgages)</Link> to calculate net worth.</div></StatsRow>
+      {/* <StatsRow><div>Welcome to your dashboard. Head over to your <Link to="/income" style={{ color: 'blue', textDecoration: 'underline' }}>income</Link> to add your current and future salary. Then add any <Link to="/expenses" style={{ color: 'blue', textDecoration: 'underline' }}>expenses</Link> (including inflation and expected future expenses...e.g. kids). Afterwards, add your <Link to="/assets" style={{ color: 'blue', textDecoration: 'underline' }}>assets</Link> (e.g. property) and <Link to="/liabilities" style={{ color: 'blue', textDecoration: 'underline' }}>liabilities (e.g. student loans or mortgages)</Link> to calculate net worth.</div></StatsRow> */}
       <MetricsRow>
         <MetricCard
           onClick={() => {
