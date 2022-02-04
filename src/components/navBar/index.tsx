@@ -68,7 +68,7 @@ const Sidebar: React.FC = () => {
         <img src={icon.liability} style={{ height: iconSize, width: iconSize }} alt="liabilities icon" />
         <div style={{ marginLeft: '20px' }}>Liabilities</div>
       </SidebarLink>
-
+      {/* 
       <SidebarNonLink style={{ marginTop: 'auto' }} selected={false}>
         <a
           href="https://github.com/matthewsmorrison/fire-dashboard"
@@ -79,21 +79,14 @@ const Sidebar: React.FC = () => {
           <img src={icon.githubIcon} style={{ height: iconSize, width: iconSize }} alt="github icon" />
           <div style={{ marginLeft: '20px' }}>Open Source Code</div>
         </a>
-      </SidebarNonLink>
+      </SidebarNonLink> */}
 
-      <SidebarNonLink selected={false}>
-        <a
-          href="https://www.patreon.com/firedashboard"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center' }}
-        >
-          <img src={icon.patreon} style={{ height: iconSize, width: iconSize }} alt="patreon icon" />
-          <div style={{ marginLeft: '20px' }}>Support Project</div>
-        </a>
-      </SidebarNonLink>
-
-      <SidebarLink selected={tab === 'settings'} to={SETTINGS} onClick={() => selectTab('settings')}>
+      <SidebarLink
+        style={{ marginTop: 'auto' }}
+        selected={tab === 'settings'}
+        to={SETTINGS}
+        onClick={() => selectTab('settings')}
+      >
         <img src={icon.settings} style={{ height: iconSize, width: iconSize }} alt="settings icon" />
         <div style={{ marginLeft: '20px' }}>Settings</div>
       </SidebarLink>
