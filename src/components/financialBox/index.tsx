@@ -23,9 +23,11 @@ interface FinancialBoxProps {
   growthComment?: string
   yearComment?: string
   amountComment: string
+  annualIncreaseComment?: string
   onGrowthChange?: (newValue) => void
   onFeeChange?: (newValue) => void
   onAmountChange: (event) => void
+  onAnnualIncreaseChange?: (event) => void
   onYearStartChange?: (event) => void
   onYearStartHelperComment?: string
   onYearEndHelperComment?: string
@@ -48,9 +50,11 @@ const FinancialBox: React.FC<FinancialBoxProps> = ({
   growthComment,
   yearComment,
   amountComment,
+  annualIncreaseComment,
   onGrowthChange,
   onFeeChange,
   onAmountChange,
+  onAnnualIncreaseChange,
   onYearStartChange,
   onYearStartHelperComment,
   onYearEndHelperComment,
@@ -96,7 +100,6 @@ const FinancialBox: React.FC<FinancialBoxProps> = ({
             label={checkboxLabel}
           />
         )}
-
         <div>
           <p style={{ marginBottom: '30px' }}>{amountComment}</p>
           <TextField
@@ -108,6 +111,20 @@ const FinancialBox: React.FC<FinancialBoxProps> = ({
             type="number"
             value={data.amount ? data.amount : ''}
             onChange={onAmountChange}
+          />
+        </div>
+
+        <div>
+          <p style={{ marginTop: '30px', marginBottom: '30px' }}>{annualIncreaseComment}</p>
+          <TextField
+            id="new-annualIncrease"
+            fullWidth
+            InputProps={{
+              startAdornment: <InputAdornment position="start">{CURRENCY_CODES[currency].symbol}</InputAdornment>
+            }}
+            type="number"
+            value={data.annualIncrease ? data.annualIncrease : ''}
+            onChange={onAnnualIncreaseChange}
           />
         </div>
 

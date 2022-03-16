@@ -350,8 +350,29 @@ export function useApplicationStore(): any {
       let totalInvestment = newInvestments
       for (let k = 0; k < investments.length; k++) {
         const thisInvestment = investments[k]
+        // let thisAnnualIncrease = 0;
+
+        // if (!!thisInvestment.annualIncrease && thisYear !== i) {
+        //   let startDate = thisYear
+        //   let endDate = finalYear
+        //   if (thisExpense.startDate && thisExpense.startDate !== '') startDate = parseInt(thisExpense.startDate)
+        //   if (thisExpense.endDate && thisExpense.endDate !== '') endDate = parseInt(thisExpense.endDate)
+
+        // }
+        // thisAnnualIncrease =
+
+        //   &&
+        //   (i)
+        //     ? thisInvestment.annualIncrease
+        //     : '0'
+        // // const thisAnnualIncrease = thisYear !== i && thisInvestment.annualIncrease;
+
+        // console.log({ investments, thisInvestment, thisYear, i, thisAnnualIncrease })
+
         totalInvestment +=
           thisInvestment.amount *
+          // (thisInvestment.amount + thisAnnualIncrease) *
+          // (thisInvestment.amount + thisInvestment.annualIncrease) *
           Math.pow(1 + (thisInvestment.growth - (thisInvestment.fee ? thisInvestment.fee : 0)), i - thisYear)
       }
 

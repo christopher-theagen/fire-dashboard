@@ -274,25 +274,21 @@ const Dashboard: React.FC = () => {
                     <TableCell align="center">
                       Income > Expenses
                     </TableCell>
-
-                      <TableCell align="center">
-                        {monthlyIncome > monthlyExpenses
-                          ? `${CURRENCY_CODES[currency].symbol}${monthlyIncome - monthlyExpenses} spare monthly income`
-                          : `${CURRENCY_CODES[currency].symbol}${
-                              monthlyExpenses - monthlyIncome
-                            } excess monthly expenses`}
-                      </TableCell>
-
-                      <TableCell align="center">
-                        {monthlyIncomeTest && (
-                          <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
-                        )}
-                        {!monthlyIncomeTest && (
-                          <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
-                        )}
-                      </TableCell>
-
-
+                    <TableCell align="center">
+                      {monthlyIncome > monthlyExpenses
+                        ? `${CURRENCY_CODES[currency].symbol}${monthlyIncome - monthlyExpenses} spare monthly income`
+                        : `${CURRENCY_CODES[currency].symbol}${
+                            monthlyExpenses - monthlyIncome
+                          } excess monthly expenses`}
+                    </TableCell>
+                    <TableCell align="center">
+                      {monthlyIncomeTest && (
+                        <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
+                      )}
+                      {!monthlyIncomeTest && (
+                        <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
+                      )}
+                    </TableCell>
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -305,28 +301,20 @@ const Dashboard: React.FC = () => {
                       </MaterialTooltip>
                     </TableCell>
                   </TableRow>
-
                   <TableRow>
                     <TableCell component="th" scope="row">
                       High Interest Debt
                     </TableCell>
                     <TableCell align="center">{`No debt >4% p.a`}</TableCell>
-
-
-                      <TableCell align="center">{calculateDebtAboveThreshold()} high interest debt(s)</TableCell>
-
-
-
-                      <TableCell align="center">
-                        {highInterestDebtTest && (
-                          <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
-                        )}
-                        {!highInterestDebtTest && (
-                          <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
-                        )}
-                      </TableCell>
-
-
+                    <TableCell align="center">{calculateDebtAboveThreshold()} high interest debt(s)</TableCell>
+                    <TableCell align="center">
+                      {highInterestDebtTest && (
+                        <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
+                      )}
+                      {!highInterestDebtTest && (
+                        <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
+                      )}
+                    </TableCell>
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -341,26 +329,20 @@ const Dashboard: React.FC = () => {
                       </MaterialTooltip>
                     </TableCell>
                   </TableRow>
-
                   <TableRow>
                     <TableCell component="th" scope="row">
                       Emergency Fund
                     </TableCell>
-                     <TableCell align="center">{`>6 months`}</TableCell>
-
+                    <TableCell align="center">{`>6 months`}</TableCell>
                    <TableCell align="center">{emergencyFundCoverage} months</TableCell>
-
-
-                      <TableCell align="center">
-                        {emergencyFundTest && (
-                          <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
-                        )}
-                        {!emergencyFundTest && (
-                          <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
-                        )}
-                      </TableCell>
-
-
+                    <TableCell align="center">
+                      {emergencyFundTest && (
+                        <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
+                      )}
+                      {!emergencyFundTest && (
+                        <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
+                      )}
+                    </TableCell>
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -376,30 +358,22 @@ const Dashboard: React.FC = () => {
                       </MaterialTooltip>
                     </TableCell>
                   </TableRow>
-
                   <TableRow>
                     <TableCell component="th" scope="row">
                       High Investment Fees
                     </TableCell>
                     <TableCell align="center">{`No investment fees >1% p.a`}</TableCell>
-
-
-                      <TableCell align="center">
-                        {calculateInvestmentFeeAboveThreshold()} high investment fee(s)
-                      </TableCell>
-
-
-
-                      <TableCell align="center">
-                        {highInvestmentFeeTest && (
-                          <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
-                        )}
-                        {!highInvestmentFeeTest && (
-                          <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
-                        )}
-                      </TableCell>
-
-
+                    <TableCell align="center">
+                      {calculateInvestmentFeeAboveThreshold()} high investment fee(s)
+                    </TableCell>
+                    <TableCell align="center">
+                      {highInvestmentFeeTest && (
+                        <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
+                      )}
+                      {!highInvestmentFeeTest && (
+                        <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
+                      )}
+                    </TableCell>
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -414,24 +388,20 @@ const Dashboard: React.FC = () => {
                       </MaterialTooltip>
                     </TableCell>
                   </TableRow>
-
                   <TableRow>
                     <TableCell component="th" scope="row">
                       Savings Rate
                     </TableCell>
                     <TableCell align="center">{`>20%`}</TableCell>
-
                     <TableCell align="center">{savingsRate.toFixed(0) + '%'}</TableCell>
-
-                      <TableCell align="center">
-                        {savingsRateTest && (
-                          <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
-                        )}
-                        {!savingsRateTest && (
-                          <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
-                        )}
-                      </TableCell>
-
+                    <TableCell align="center">
+                      {savingsRateTest && (
+                        <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
+                      )}
+                      {!savingsRateTest && (
+                        <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
+                      )}
+                    </TableCell>
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -452,10 +422,7 @@ const Dashboard: React.FC = () => {
                       Multiple Income Streams
                     </TableCell>
                     <TableCell align="center">{`> 1 Income Stream`}</TableCell>
-
                     <TableCell align="center">{income.length} Income Stream(s)</TableCell>
-
-
                       <TableCell align="center">
                         {multipleIncomeTest && (
                           <img src={icon.tick} style={{ width: '30px', height: '30px' }} alt="tick" />
@@ -464,8 +431,6 @@ const Dashboard: React.FC = () => {
                           <img src={icon.fail} style={{ width: '30px', height: '30px' }} alt="fail" />
                         )}
                       </TableCell>
-
-
                     <TableCell align="center">
                       <MaterialTooltip
                         title={
@@ -488,6 +453,7 @@ const Dashboard: React.FC = () => {
       </TitleRow>
 
       {/* <StatsRow><div>Welcome to your dashboard. Head over to your <Link to="/income" style={{ color: 'blue', textDecoration: 'underline' }}>income</Link> to add your current and future salary. Then add any <Link to="/expenses" style={{ color: 'blue', textDecoration: 'underline' }}>expenses</Link> (including inflation and expected future expenses...e.g. kids). Afterwards, add your <Link to="/assets" style={{ color: 'blue', textDecoration: 'underline' }}>assets</Link> (e.g. property) and <Link to="/liabilities" style={{ color: 'blue', textDecoration: 'underline' }}>liabilities (e.g. student loans or mortgages)</Link> to calculate net worth.</div></StatsRow> */}
+
       <MetricsRow>
         <MetricCard
           onClick={() => {
@@ -545,7 +511,6 @@ const Dashboard: React.FC = () => {
               Assets<span style={{ marginLeft: '7px', color: 'blue', textDecoration: 'underline' }}>(View Chart)</span>
             </div>
           </MetricsCardTitle>
-
           <MetricsCardContent>
             <div style={{ marginBottom: '10px' }}>
               Current Emergency Fund: {CURRENCY_CODES[currency].symbol}
@@ -598,7 +563,6 @@ const Dashboard: React.FC = () => {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </div>
             )}
-
             {fiYear === -1 && <div style={{ marginBottom: '10px' }}>Financially Independence is Looking Unlikely!</div>}
           </MetricsCardContent>
         </MetricCard>

@@ -28,11 +28,12 @@ const Investments: React.FC = () => {
   const defaultInvestment: InvestmentObject = {
     open: false,
     url: '',
-    name: 'My Savings',
+    name: 'Investment',
     growth: 0.03,
     fee: 0,
     emergencyFund: false,
     amount: 0,
+    annualIncrease: 0,
     startDate: thisYear,
     arrayPosition: -1
   }
@@ -50,6 +51,7 @@ const Investments: React.FC = () => {
     newInvestmentArray[editInvestment.arrayPosition] = {
       name: editInvestment.name,
       amount: editInvestment.amount,
+      annualIncrease: editInvestment.annualIncrease,
       url: editInvestment.url,
       growth: editInvestment.growth,
       fee: editInvestment.fee,
@@ -102,6 +104,7 @@ const Investments: React.FC = () => {
                     name: investment.name,
                     url: investment.url ? investment.url : '',
                     amount: investment.amount,
+                    annualIncrease: investment.annualIncrease,
                     growth: investment.growth,
                     fee: investment.fee ? investment.fee : 0,
                     arrayPosition: investmentNumber,
@@ -132,6 +135,7 @@ const Investments: React.FC = () => {
         handleClose={() => setAddInvestment({ ...addInvestment, open: false })}
         handleSave={() => saveNewInvestment()}
         amountComment={'Please enter the current balance of this asset.'}
+        annualIncreaseComment={'Please enter the amount this asset will increase annually.'}
         growthComment={
           'Please enter how much you expect this asset to grow per year (if it is a savings account then it will most likely be around 1%, if it is a stock investment account you can set this to around 7%).'
         }
@@ -148,7 +152,8 @@ const Investments: React.FC = () => {
           CURRENCY_CODES[currency].symbol
         }${formatNumber(
           Math.round(
-            addInvestment.amount *
+            // addInvestment.amount *
+            (addInvestment.amount + addInvestment.annualIncrease) *
               Math.pow(
                 1 + (addInvestment.growth - (addInvestment.fee ? addInvestment.fee : 0)),
                 addInvestment.startDate - thisYear
@@ -160,6 +165,9 @@ const Investments: React.FC = () => {
         onGrowthChange={(value) => setAddInvestment({ ...addInvestment, growth: value })}
         onFeeChange={(value) => setAddInvestment({ ...addInvestment, fee: value })}
         onAmountChange={(event) => setAddInvestment({ ...addInvestment, amount: parseInt(event.target.value) })}
+        onAnnualIncreaseChange={(event) =>
+          setAddInvestment({ ...addInvestment, annualIncrease: parseInt(event.target.value) })
+        }
         onCheckboxChange={(event) => setAddInvestment({ ...addInvestment, emergencyFund: event.target.checked })}
         checkboxLabel={'This is an emergency fund'}
         data={addInvestment}
@@ -176,6 +184,7 @@ const Investments: React.FC = () => {
         handleClose={() => setEditInvestment({ ...editInvestment, open: false })}
         handleSave={() => saveEditInvestment()}
         amountComment={'Please enter the current balance of this asset. '}
+        annualIncreaseComment={'Please enter the amount this asset will increase annually.'}
         growthComment={
           'Please enter how much you expect this asset to grow per year (if it is a savings account then it will most likely be around 1%, if it is a stock investment account you can set this to around 7%).'
         }
@@ -204,6 +213,9 @@ const Investments: React.FC = () => {
         onGrowthChange={(value) => setEditInvestment({ ...editInvestment, growth: value })}
         onFeeChange={(value) => setEditInvestment({ ...editInvestment, fee: value })}
         onAmountChange={(event) => setEditInvestment({ ...editInvestment, amount: parseInt(event.target.value) })}
+        onAnnualIncreaseChange={(event) =>
+          setEditInvestment({ ...editInvestment, annualIncrease: parseInt(event.target.value) })
+        }
         onCheckboxChange={(event) => setEditInvestment({ ...editInvestment, emergencyFund: event.target.checked })}
         checkboxLabel={'This is an emergency fund'}
         data={editInvestment}

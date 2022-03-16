@@ -67,6 +67,7 @@ export const investmentObject: InvestmentObject = {
   fee: 0.01,
   emergencyFund: true,
   amount: 20000,
+  annualIncrease: 0,
   startDate: 2020,
   arrayPosition: 0
 }
@@ -79,6 +80,7 @@ export const houseInvestmentObject: InvestmentObject = {
   fee: 0.0,
   emergencyFund: false,
   amount: 200000,
+  annualIncrease: 0,
   startDate: 2020,
   arrayPosition: 1
 }

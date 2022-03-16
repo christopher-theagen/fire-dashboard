@@ -6,6 +6,7 @@ export interface InvestmentObject {
   fee: number
   emergencyFund: boolean
   amount: number
+  annualIncrease: number
   startDate: number
   arrayPosition: number
 }
